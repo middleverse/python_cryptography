@@ -49,8 +49,3 @@ def encryptMessage(key, message):
 # if this file is not used as module, call main()
 if __name__ == '__main__':
     main()
-
-
-
-
-    
