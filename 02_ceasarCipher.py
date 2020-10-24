@@ -5,7 +5,7 @@
 # key space K <- {0..25}
 #   the key space is from the traditional ceasar cipher
 #   where only alphabets are allowed & in one chosen case (hence mod 26)
-#   but we could've chosen a it to be total length of SYMBOLS below
+#   but we could've chosen it to be total length of SYMBOLS below
 # message space M <- (inf)
 # output space O <- (inf)
 
