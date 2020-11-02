@@ -4,7 +4,7 @@
 
 import random
 from datetime import datetime
-import sys # what does this do?
+import sys
 import transpositionCipher, decryptTranspositionCipher
 
 
