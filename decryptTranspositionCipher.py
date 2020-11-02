@@ -24,12 +24,12 @@ def main():
     ciphertext = 'Atniy, hsso doh unauil iytnikg  eknhws,eotiu  w.'
     key = 8 # see assumption above
 
-    plaintext = decryptMessage(ciphertext, key)
+    plaintext = decryptMessage(key, ciphertext)
 
     print(plaintext)
 
 # decrypt a given columnar transpositional CT
-def decryptMessage(ciphertext, key):
+def decryptMessage(key, ciphertext):
     ciphertextLen = len(ciphertext)
 
     # calculate no. of columns in grid
