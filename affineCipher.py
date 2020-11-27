@@ -33,8 +33,7 @@ def checkForWeakKeys(keyA, keyB, mode):
     if keyA < 0 or keyB < 0 or keyB > len(SYMBOLS) - 1:
             sys.exit('Key A must be greater than 0 and key B must be between 0 and %s' % (len(SYMBOLS) - 1))
     # check if keyA and len(symbols) are coprime
-    if cryptomath.gcd(keyA, len(SYMBOLS) - 1) != 1:
-            print('here')
+    if cryptomath.gcd(keyA, len(SYMBOLS)) != 1:
             sys.exit('Key A (%s) and the symbol set size (%s) are not relatively prime. CHoose a different key.' % (keyA, len(SYMBOLS) - 1))
 
 def encrypt(key, plaintext):
@@ -82,4 +81,5 @@ def main():
     print(translatedMessage)
 
 
-main()
+if __name__ == '__main__':
+    main()
