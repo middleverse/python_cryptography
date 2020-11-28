@@ -13,7 +13,7 @@ def getBlankCipherletterMapping():
     'O': [], 'P': [], 'Q': [], 'R': [], 'S': [], 'T': [], 'U': [],
     'V': [], 'W': [], 'X': [], 'Y': [], 'Z': []}
 
-# maps letters in candidate to respectice index in cipherWord, 
+# maps letters in candidate to respective index in cipherWord, 
 # adds that letter to letterMapping if not already there
 # EX: if PUPPY is the candidate to HGHHU, map P to H, U to G & Y to U
 def addLettersToMappings(letterMapping, cipherWord, candidate):
@@ -25,7 +25,7 @@ def addLettersToMappings(letterMapping, cipherWord, candidate):
 def intersectMappings(mapA, mapB):
     intersectedMapping = getBlankCipherletterMapping()
     for symbol in SYMBOLS:
-        # if a symbol has no mappings in either of the maps
+        # if a symbol has no mappings in one  of the maps
         # copy the other map entirely into intersectedMapping
         if mapA[symbol] == []:
             intersectedMapping[symbol] = copy.deepcopy(mapB[symbol])
