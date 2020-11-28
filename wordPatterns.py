@@ -1,12 +1,5 @@
-# ==========================
-# HELPER FILE 
-# --------------------------
-# Source Code Provided by 
-# nostarch.com/crackingcodes
-# Written by Al Sweigart
-# ==========================
-
-allPatterns = {'0.0.1': ['EEL'],
+allPatterns = {'': [''],
+ '0.0.1': ['EEL'],
  '0.0.1.2': ['EELS', 'OOZE'],
  '0.0.1.2.0': ['EERIE'],
  '0.0.1.2.3': ['AARON', 'LLOYD', 'OOZED'],
@@ -50,7 +43,7 @@ allPatterns = {'0.0.1': ['EEL'],
  '0.1.0.0.1.2.3.4.1.5.6': ['LILLIPUTIAN'],
  '0.1.0.0.1.2.3.4.1.5.6.1.7.8': ['LILLIPUTIANIZE'],
  '0.1.0.0.1.2.3.4.1.5.6.1.7.8.9': ['LILLIPUTIANIZES'],
- '0.1.0.0.1.2.3makeword.4.5': ['PEPPERING', 'PEPPERONI'],
+ '0.1.0.0.1.2.3.4.5': ['PEPPERING', 'PEPPERONI'],
  '0.1.0.0.1.2.3.4.5.6': ['PEPPERMINT'],
  '0.1.0.0.2': ['BOBBY',
                'DADDY',
