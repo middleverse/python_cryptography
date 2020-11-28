@@ -21,9 +21,23 @@ def addLettersToMappings(letterMapping, cipherWord, candidate):
         if candidate[i] not in letterMapping[cipherWord[i]]:
             letterMapping[cipherWord[i]].append(candidate[i])
 
+# returns intersection of two maps
 def intersectMappings(mapA, mapB):
-    return -1
-
+    intersectedMapping = getBlankCipherletterMapping()
+    for symbol in SYMBOLS:
+        # if a symbol has no mappings in either of the maps
+        # copy the other map entirely into intersectedMapping
+        if mapA[symbol] == []:
+            intersectedMapping[symbol] = copy.deepcopy(mapB[symbol])
+        elif mapB[symbol] == []:
+            intersectedMapping[symbol] = copy.deepcopy(mapA[symbol])
+        # if a symbol appears in both maps, add that symbol to the mapping
+        else:
+            for mappedLetter in mapA[symbol]:
+                if mappedLetter in mapB[symbol]:
+                    intersectedMapping[symbol].append(mappedLetter)
+    return intersectedMapping
+        
 def hackSubstitutionCipher(ciphertext):
     intersectedMap = getBlankCipherletterMapping()
     cipherwordList = nonLettersOrSpaces.sub('', ciphertext.upper()).split()
