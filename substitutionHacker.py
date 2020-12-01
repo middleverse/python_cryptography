@@ -67,7 +67,7 @@ def hackSubstitutionCipher(ciphertext):
         # get cipher letter mapping
         candidateMap = getBlankCipherletterMapping()
         wordPattern = makeWordPatterns.getWordPattern(cipherword)
-        if wordPattern not in wordPattern.allPatterns:
+        if wordPattern not in wordPatterns.allPatterns:
             continue # do nothing if word in not in our dictionary
         # add the letters of each cipherword to the mapping
         for candidate in wordPatterns.allPatterns[wordPattern]:
@@ -78,10 +78,26 @@ def hackSubstitutionCipher(ciphertext):
     return removeSolvedLettersFromMapping(intersectedMap)
 
 def decryptWithMapping(ciphertext, letterMapping):
-    return -1
+    # return the decrypted ciphertext string
+    # with any ambiguous decrypted letters replaced with an underscore
+
+    # create a key from the letterMapping
+    key = ['x'] * len(SYMBOLS) 
+    for cipherletter in SYMBOLS:
+        if len(letterMapping[cipherletter]) == 1:
+            # if there's only one letter, add it to key
+            keyIndex = SYMBOLS.find(letterMapping[cipherletter][0])
+            key[keyIndex] = cipherletter
+        else:
+            ciphertext = ciphertext.replace(cipherletter.lower(), '_')
+            ciphertext = ciphertext.replace(cipherletter.upper(), '_')
+    key = ''.join(key)
+    print(key)
+
+    return substitutionCipher.decrypt(key, ciphertext)
 
 def main():
-    ciphertext = ''
+    ciphertext = 'Sy l nlx sr pyyacao l ylwj eiswi upar lulsxrj isr sxrjsxwjr, ia esmm rwctjsxsza sj wmpramh, lxo txmarr jia aqsoaxwa sr pqaceiamnsxu, ia esmm caytra jp famsaqa sj. Sy, px jia pjiac ilxo, ia sr pyyacao rpnajisxu eiswi lyypcor l calrpx ypc lwjsxu sx lwwpcolxwa jp isr sxrjsxwjr, ia esmm lwwabj sj aqax px jia rmsuijarj aqsoaxwa. Jia pcsusx py nhjir sr agbmlsxao sx jisr elh. -Facjclxo Ctrramm'
     print('Hacking...')
     letterMapping = hackSubstitutionCipher(ciphertext)
 
@@ -93,6 +109,7 @@ def main():
     print(ciphertext)
     print()
     hackedPlaintext = decryptWithMapping(ciphertext, letterMapping)
+    print(hackedPlaintext)
 
 if __name__ == '__main__':
     main()
