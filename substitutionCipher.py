@@ -33,7 +33,7 @@ def translatedMessage(key, message, mode):
     return translated
 
 def main():
-    message = 'This is a run of the substitution cipher'
+    message = 'Times are harder than we thought, and that is what makes soft men hard'
     letters = list(SYMBOLS) # generate random key
     random.shuffle(letters)
     key = ''.join(letters)
